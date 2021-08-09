@@ -1,0 +1,44 @@
+@import '../../sass/global.scss';
+
+.Beats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .addBeat {
+        background-color: $purple;
+        margin: 2rem 0;
+        border: none;
+        padding: 1rem 5rem;
+        color: white;
+        text-transform: uppercase;
+        font-size: 2rem;
+        border-radius: 10rem;
+        cursor: pointer;
+    }
+
+    .pagination {
+        margin-top: 2rem;
+
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+
+
+            &__item {
+                margin: 0 .4rem;
+                border: 1px solid $purple;
+                padding: .3rem .6rem;
+                text-decoration: none;
+                font-size: 1.2rem;
+                color: $purple;
+
+                &__active {
+                    background-color: $purple;
+                    color: white;
+                }
+            }
+        }
+    }
+}

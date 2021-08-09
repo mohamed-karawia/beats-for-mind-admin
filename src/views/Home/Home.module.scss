@@ -1,0 +1,32 @@
+@import '../../sass/global.scss';
+
+.Home{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__link{
+        border: 1px solid $purple;
+        border-radius: 3rem;
+        width: 20rem;
+        height: 15rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: $purple;
+        transition: all .2s;
+
+        &:hover{
+            background-color: $purple;
+            color: white;
+        }
+    }
+
+    &__link:nth-child(1){
+        margin-right: 3rem
+    }
+}

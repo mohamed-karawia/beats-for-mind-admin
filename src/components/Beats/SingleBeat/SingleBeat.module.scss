@@ -1,0 +1,44 @@
+.Beat {
+    display: flex;
+    -webkit-box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.47);
+    -moz-box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.47);
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.47);
+    padding: 1rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+
+    &>* {
+        margin-right: 2rem;
+    }
+
+    &__img {
+        max-width: 8rem;
+        min-width: 8rem;
+        height: 8rem;
+
+        img {
+            max-width: 8rem;
+            min-width: inherit;
+            height: inherit;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__title {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+
+    &__button {
+
+        button {
+            border: none;
+            background-color: transparent;
+            color: red;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}

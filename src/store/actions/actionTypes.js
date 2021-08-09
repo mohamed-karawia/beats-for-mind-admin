@@ -1,0 +1,20 @@
+// Authentication
+export const AUTH_START = 'AUTH_START';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAILED = 'AUTH_FAILED';
+export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+// Beats
+export const GET_BEATS_START = 'GET_BEATS_START';
+export const GET_BEATS_SUCCESS = 'GET_BEATS_SUCCESS';
+export const GET_BEATS_FAILED = 'GET_BEATS_FAILED';
+export const SET_OPEN_ADD_BEAT = 'SET_OPEN_ADD_BEAT';
+export const ADD_BEAT_START = 'ADD_BEAT_START';
+export const ADD_BEAT_SUCCESS = 'ADD_BEAT_SUCCESS';
+export const ADD_BEAT_FAILED = 'ADD_BEAT_FAILED';
+// USERS
+export const GET_USERS_START = 'GET_USERS_START';
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
+export const SET_OPEN_SEND_MSG = 'SET_OPEN_SEND_MSG';
+export const SEND_MSG_START = 'SEND_MSG_START';
+export const SEND_MSG_SUCCESS = 'SEND_MSG_SUCCESS';
+export const SEND_MSG_FAILED = 'SEND_MSG_FAILED'

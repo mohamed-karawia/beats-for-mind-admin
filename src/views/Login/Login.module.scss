@@ -1,0 +1,149 @@
+@import '../../sass/global.scss';
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(164, 0, 176, 0.507), rgba(164, 0, 176, 0.507)), url('../../assets/home.png');
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+
+    @media only screen and (max-width: 960px) {
+        grid-template-columns: 1fr;
+    }
+
+
+    &__form {
+        padding: 4rem 4rem;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+
+        &__heading{
+            align-self: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        &__back{
+            margin-bottom: 2rem;
+            cursor: pointer;
+            
+            svg {
+                fill: $purple;
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        &__elements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 5rem;
+            justify-items: center;
+
+            .form__group,
+            .button,
+            p {
+                grid-column: 1 / span 2;
+            }
+        }
+
+        .button {
+            @include purple-button;
+            margin-top: 4rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+
+            a {
+                text-decoration: none;
+                color: $purple;
+            }
+        }
+
+        .form__group {
+            position: relative;
+            padding: 15px 0 0;
+            width: 100%;
+            margin-top: 4rem;
+        }
+
+        .form__field {
+            font-family: inherit;
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid $gray;
+            outline: 0;
+            font-size: 1.3rem;
+            color: $purple;
+            font-size: 2rem;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+
+            &::placeholder {
+                color: transparent;
+                text-transform: uppercase;
+            }
+
+            &:placeholder-shown~.form__label {
+                font-size: 1.7rem;
+                cursor: text;
+                top: 20px;
+            }
+        }
+
+        .form__label {
+            position: absolute;
+            top: 0;
+            display: block;
+            transition: 0.2s;
+            font-size: 2rem;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .form__field:focus {
+            ~.form__label {
+                position: absolute;
+                top: 0;
+                display: block;
+                transition: 0.2s;
+                font-size: 2rem;
+                color: $purple;
+                font-weight: 700;
+            }
+
+            padding-bottom: 6px;
+            font-weight: 700;
+            border-width: 3px;
+            border-image: linear-gradient(to right, $purple, $purple);
+            border-image-slice: 1;
+        }
+
+        /* reset input */
+        .form__field {
+
+            &:required,
+            &:invalid {
+                box-shadow: none;
+            }
+        }
+
+
+        h2 {
+            font-size: 3.5rem;
+            font-weight: 300;
+        }
+    }
+
+    .error {
+        color: rgb(236, 55, 55);
+        text-transform: capitalize;
+    }
+}
