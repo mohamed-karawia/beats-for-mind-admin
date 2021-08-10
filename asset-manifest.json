@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/beats-for-mind-admin/static/css/main.d746594a.chunk.css",
-    "main.js": "/beats-for-mind-admin/static/js/main.32df2573.chunk.js",
-    "main.js.map": "/beats-for-mind-admin/static/js/main.32df2573.chunk.js.map",
+    "main.js": "/beats-for-mind-admin/static/js/main.de20f297.chunk.js",
+    "main.js.map": "/beats-for-mind-admin/static/js/main.de20f297.chunk.js.map",
     "runtime-main.js": "/beats-for-mind-admin/static/js/runtime-main.8000766b.js",
     "runtime-main.js.map": "/beats-for-mind-admin/static/js/runtime-main.8000766b.js.map",
     "static/js/2.4cf9426a.chunk.js": "/beats-for-mind-admin/static/js/2.4cf9426a.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.8000766b.js",
     "static/js/2.4cf9426a.chunk.js",
     "static/css/main.d746594a.chunk.css",
-    "static/js/main.32df2573.chunk.js"
+    "static/js/main.de20f297.chunk.js"
   ]
 }
