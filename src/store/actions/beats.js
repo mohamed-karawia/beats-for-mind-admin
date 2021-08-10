@@ -54,10 +54,8 @@ export const getBeats = (queries) => {
         axios.get(link)
         .then(res => {
             dispatch(getBeatsSuccess(res.data.data))
-            console.log(res)
         })
         .catch(err => {
-            console.log(err.response)
         })
     }
 }
@@ -67,13 +65,11 @@ export const addBeat = (beat, queries) => {
         dispatch(addBeatStart())
         axios.post('/admin/music/beet', beat)
         .then(res => {
-            console.log(res)
             dispatch(addBeatSuccess())
             dispatch(getBeats(queries))
             dispatch(setOpenAddBeat(false))
         })
         .catch(err => {
-            console.log(err.response)
             dispatch(addBeatFailed(err.response.data.data[0].msg))
 
         })
@@ -85,11 +81,9 @@ export const deleteBeat = (id, queries) => {
         dispatch(getBeatsStart())
         axios.delete('/admin/music/beat', {data: id})
         .then(res => {
-            console.log(res)
             dispatch(getBeats(queries))
         })
         .catch(err => {
-            console.log(err.response)
         })
     }
 }

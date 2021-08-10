@@ -5,7 +5,7 @@ import classes from './Beats.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../store/actions'
 // react-router
-import { useLocation, useHistory } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 // Queries
 import queryString from 'query-string';
 // Components
@@ -19,7 +19,6 @@ import Pagination from "react-js-pagination";
 const Beats = () => {
     const { search } = useLocation();
     const dispatch = useDispatch();
-    const history = useHistory();
     const [queries, setQueries] = useState(queryString.parse(search))
 
     const beats = useSelector(state => state.beats.beats);
@@ -29,6 +28,7 @@ const Beats = () => {
 
     useEffect(() => {
         dispatch(actions.getBeats(queries))
+        // eslint-disable-next-line
     }, [queries])
 
     const onAddBeat = (beat) => {
@@ -43,7 +43,6 @@ const Beats = () => {
         const data = {
             id: id
         }
-        console.log(data)
         dispatch(actions.deleteBeat(data, queries))
     }
 

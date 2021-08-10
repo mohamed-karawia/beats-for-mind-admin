@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Navbar.module.scss';
 // react-router
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 // Logo
 import Logo from '../../assets/logo.png'
 // Redux

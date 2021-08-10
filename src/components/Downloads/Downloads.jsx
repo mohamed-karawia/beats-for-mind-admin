@@ -1,13 +1,11 @@
 import React from 'react';
 import classes from './Downloads.module.scss';
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../store/actions'
+import { useSelector } from 'react-redux';
 // Components
 import Spinner from '../Spinner/Spinner';
 
 const Downloads = (props) => {
-    const dispatch = useDispatch();
 
     const setAmount = (amount) => {
         props.setAmount(amount)

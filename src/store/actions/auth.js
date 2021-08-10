@@ -15,7 +15,6 @@ export const authSuccess = (token) => {
 };
 
 export const authFailed = (error) => {
-    console.log(error)
     return {
         type: actionTypes.AUTH_FAILED,
         error: error
@@ -50,14 +49,11 @@ export const saveToLocalStorage = (token, date) => {
 export const loginLocal = (data) => {
     return dispatch => {
         dispatch(authStart());
-        console.log(data)
         axios.post('/admin/login', data)
         .then(res => {
-            console.log(res)
             dispatch(saveToLocalStorage(res.data.data.token, res.data.data.expiresIn))
         })
         .catch(err => {
-            console.log(err.response)
             dispatch(authFailed(err.response.data.message))
         })
     }

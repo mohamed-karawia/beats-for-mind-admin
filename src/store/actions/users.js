@@ -45,15 +45,12 @@ export const sendMsgFailed = (error) => {
 
 export const getUsers = (page) => {
     return dispatch => {
-        console.log(page)
         dispatch(getUsersStart())
         axios.get(`/admin/music/users?page=${page}`)
         .then(res => {
-            console.log(res)
             dispatch(getUsersSuccsess(res.data.data))
         })
         .catch(err => {
-            console.log(err.response)
         })
     }
 }
@@ -63,11 +60,9 @@ export const sendEmail = (data) => {
         dispatch(sendMsgStart())
         axios.post('/admin/music/user/send/sms', data)
         .then(res => {
-            console.log(res)
             dispatch(sendMsgSuccess('Message Sent Successfully'))
         })
         .catch(err => {
-            console.log(err.response)
             dispatch(sendMsgFailed(err.response.data.message))
         })
     }
@@ -78,11 +73,9 @@ export const sendFreeBeats = (data) => {
         dispatch(sendMsgStart());
         axios.post('/admin/music/user/downloads', data)
         .then(res => {
-            console.log(res)
             dispatch(sendMsgSuccess('Beats Sent Successfully'))
         })
         .catch(err => {
-            console.log(err.response)
             dispatch(sendMsgFailed(err.response.data.message))
         })
     }

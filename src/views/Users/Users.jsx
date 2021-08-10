@@ -23,6 +23,7 @@ const Users = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(actions.getUsers(page))
+        // eslint-disable-next-line
     }, [page])
 
     const users = useSelector(state => state.users.users);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { deleteBeat } from '../../../store/actions';
 // Styles
 import classes from './SingleBeat.module.scss';
 
