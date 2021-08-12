@@ -11,6 +11,7 @@ import Backdrop from '../../components/Beats/Backdrop/Backdrop'
 import Downloads from '../../components/Downloads/Downloads';
 // Pagination component
 import Pagination from "react-js-pagination";
+import axios from 'axios';
 
 const Users = () => {
     const [type, setType] = useState('');
@@ -26,6 +27,7 @@ const Users = () => {
         // eslint-disable-next-line
     }, [page])
 
+    const token = useSelector(state => state.auth.token)
     const users = useSelector(state => state.users.users);
     const loading = useSelector(state => state.users.loading);
     const total = useSelector(state => state.users.total);
@@ -76,9 +78,19 @@ const Users = () => {
         setPage(Number(pageNum))
     }
 
+    // 'https://beats-for-minds.herokuapp.com/admin/music/user/csv'
+
+    const downloadCsv = () =>{
+        const downloadLink = `${process.env.REACT_APP_BASE_LINK}/admin/music/user/csv/?token=${token}`
+        const win = window.open(downloadLink, '__blank');
+        win.focus()
+    }
+
     return (
         <div className={classes.Users}>
-            {loading ? <Spinner color="purple" /> : <table>
+            {loading ? <Spinner color="purple" /> : <>
+            <button onClick={downloadCsv} className={classes.csv}>Download CSV</button>
+            <table>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
@@ -99,7 +111,7 @@ const Users = () => {
                         <button className={classes.actions__beat} onClick={e => openUserDownloads(user._id, 'per-day')}>Beats per day</button>
                     </td>
                 </tr>))) : null}
-            </table>}
+            </table></>}
             {openSendMsg && <Backdrop><SendUser type={type} sendSMS={sendSMS} /></Backdrop>}
             {openDownloads && <Backdrop>
                 <Downloads
