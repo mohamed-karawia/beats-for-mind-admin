@@ -85,6 +85,31 @@ const Users = () => {
         const win = window.open(downloadLink, '__blank');
         win.focus()
     }
+    const makePremium = (id, isPremium) => {
+        if(isPremium){
+            const data = {
+                userId: id
+            }
+            axios.post('/admin/music/user/member', data)
+            .then(res => {
+                dispatch(actions.getUsers(page))
+            })
+            .catch(err => {
+                window.alert(err.response.data.message)
+            })
+        }else{
+            const data = {
+                userId: id
+            }
+            axios.post('/admin/music/user/cancel/member', data)
+            .then(res => {
+                dispatch(actions.getUsers(page))
+            })
+            .catch(err => {
+                window.alert(err.response.data.message)
+            })
+        }
+    }
 
     return (
         <div className={classes.Users}>
@@ -100,15 +125,16 @@ const Users = () => {
                     <th>Take Action</th>
                 </tr>
                 {users.length > 0 ? (users.map(user => (<tr key={user._id}>
-                    <td>{user.local ? `${user.local.first_name} ${user.local.last_name}` : user.google ? user.google.name : user.facebook.name}</td>
-                    <td>{user.local ? user.local.email : user.google ? user.google.email : user.facebook.email}</td>
-                    <td>{user.mobile}</td>
-                    <td>{user.downloadsPerDay}</td>
-                    <td>{user.freeDownloads}</td>
+                    <td>{user.user.method == 'local' && `${user.user.local.first_name} ${user.user.local.last_name}`}</td>
+                    <td>{user.user.method == 'local' && user.user.local.email}</td>
+                    <td>{user.user.mobile}</td>
+                    <td>{user.user.downloadsPerDay}</td>
+                    <td>{user.user.freeDownloads}</td>
                     <td className={classes.actions}>
-                        <button className={classes.actions__sms} disabled={!user.mobile} onClick={e => setOpenAddBeat('sms', user._id)}>SMS</button>
-                        <button className={classes.actions__beat} onClick={e => openUserDownloads(user._id, 'free')}>Give Free beats</button>
-                        <button className={classes.actions__beat} onClick={e => openUserDownloads(user._id, 'per-day')}>Beats per day</button>
+                        <button className={classes.actions__sms} disabled={!user.user.mobile} onClick={e => setOpenAddBeat('sms', user.user._id)}>SMS</button>
+                        <button className={classes.actions__beat} onClick={e => openUserDownloads(user.user._id, 'free')}>Give Free beats</button>
+                        <button className={classes.actions__beat} onClick={e => openUserDownloads(user.user._id, 'per-day')}>Beats per day</button>
+                        <button className={classes.actions__beat} className={user.isActivePlan ? classes.red : ''} onClick={e => makePremium(user.user._id, user.isActivePlan)}>{!user.isActivePlan ? 'Make Premium' : 'Cancel Premium'}</button>
                     </td>
                 </tr>))) : null}
             </table></>}

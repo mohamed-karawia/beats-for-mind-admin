@@ -8,7 +8,6 @@ export const getUsersStart = () =>{
 }
 
 export const getUsersSuccsess = (data) =>{
-    console.log(data)
     return {
         type: actionTypes.GET_USERS_SUCCESS,
         total: data.total,
